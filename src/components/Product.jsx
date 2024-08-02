@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 import axios from "axios";
-import { Typography } from "neetoui";
+import { Typography, Spinner } from "neetoui";
 import { isNotNil, append } from "ramda";
 
 import Carousel from "./Carousel";
 
 const Product = () => {
   const [product, setProduct] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchProduct = async () => {
     try {
@@ -17,12 +18,22 @@ const Product = () => {
       setProduct(response.data);
     } catch (error) {
       console.log("An error occurred:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchProduct();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
 
   const {
     name,
