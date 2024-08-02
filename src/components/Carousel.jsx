@@ -14,14 +14,13 @@ const Carousel = ({ imageUrls, title }) => {
   };
 
   const handleNext = () => {
-    const nextIndex = (currentIndex + 1) % imageUrls.length;
-    setCurrentIndex(nextIndex);
+    setCurrentIndex(prevIndex => (prevIndex + 1) % imageUrls.length);
   };
 
   const handlePrevious = () => {
-    const previousIndex =
-      (currentIndex - 1 + imageUrls.length) % imageUrls.length;
-    setCurrentIndex(previousIndex);
+    setCurrentIndex(
+      prevIndex => (prevIndex - 1 + imageUrls.length) % imageUrls.length
+    );
     resetTimer();
   };
 
