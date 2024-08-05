@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 
 import productsApi from "apis/product";
-import { Typography, Spinner } from "neetoui";
-import { isNotNil, append } from "ramda";
+import { LeftArrow } from "neetoicons";
+import { Spinner, Typography } from "neetoui";
+import { append, isNotNil } from "ramda";
+import { useHistory, useParams } from "react-router-dom";
 
 import Carousel from "./Carousel";
+import PageNotFound from "./PageNotFound";
 
 const Product = () => {
+  const history = useHistory();
+  const [isError, setIsError] = useState(false);
+  const { slug } = useParams();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchProduct = async () => {
     try {
-      const product = await productsApi.show();
+      const product = await productsApi.show(slug);
       setProduct(product);
-    } catch (error) {
-      console.log("An error occurred:", error);
+    } catch {
+      setIsError(true);
     } finally {
       setIsLoading(false);
     }
@@ -24,6 +30,8 @@ const Product = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
+
+  if (isError) return <PageNotFound />;
 
   if (isLoading) {
     return (
@@ -39,7 +47,11 @@ const Product = () => {
 
   return (
     <div className="px-6 pb-6">
-      <div>
+      <div className="flex items-center">
+        <LeftArrow
+          className="hover:neeto-ui-bg-gray-400 neeto-ui-rounded-full mr-6"
+          onClick={history.goBack}
+        />
         <Typography className="py-2 text-4xl font-semibold" style="h1">
           {name}
         </Typography>
