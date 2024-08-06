@@ -1,6 +1,6 @@
-import PageNotFound from "components/PageNotFound";
-import Product from "components/Product";
-import ProductList from "components/ProductList";
+import { PageNotFound } from "components/commons";
+import Product from "components/Product/index";
+import ProductList from "components/ProductList/index";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import "./App.css";
