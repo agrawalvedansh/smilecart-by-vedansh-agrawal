@@ -4,7 +4,8 @@ import productsApi from "apis/product";
 import { Header, PageLoader } from "components/commons";
 import ProductListItem from "components/ProductList/ProductListItem";
 import { Search } from "neetoicons";
-import { Input } from "neetoui";
+import { Input, NoData } from "neetoui";
+import { isEmpty } from "ramda";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -24,14 +25,14 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [searchKey]);
 
   if (isLoading) {
     return <PageLoader />;
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex h-screen flex-col">
       <Header
         shouldShowBackButton={false}
         title="Smile cart"
@@ -45,11 +46,15 @@ const ProductList = () => {
           />
         }
       />
-      <div className="grid grid-cols-2 justify-items-center gap-y-8 p-4 md:grid-cols-3 lg:grid-cols-4">
-        {products.map(product => (
-          <ProductListItem key={product.slug} {...product} />
-        ))}
-      </div>
+      {isEmpty(products) ? (
+        <NoData className="h-full w-full" title="No products to show" />
+      ) : (
+        <div className="grid grid-cols-2 justify-items-center gap-y-8 p-4 md:grid-cols-3 lg:grid-cols-4">
+          {products.map(product => (
+            <ProductListItem key={product.slug} {...product} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
