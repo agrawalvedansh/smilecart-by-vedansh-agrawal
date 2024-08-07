@@ -6,6 +6,7 @@ const requestInterceptors = () => {
   axios.interceptors.request.use(
     evolve({ data: serializeKeysToSnakeCase, params: serializeKeysToSnakeCase })
   );
+  console.log(axios.interceptors.request);
 };
 
 const responseInterceptors = () => {
