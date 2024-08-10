@@ -1,3 +1,25 @@
 {
-  "helloWorld": "Hello World"
+  "buyNow": "Buy now",
+  "itemCount_one": "({{count}} item)",
+  "itemCount_other": "({{count}} items)",
+  "totalMrp": "Total MRP: <typography>${{mrp}}</typography>",
+  "totalDiscounts": "Total discounts: <span>${{discounts}} ({{discountPercentage}}%)</span>",
+  "totalOfferPrice": "Total offer price: <span>${{offerPrice}}</span>",
+  "mrp": "MRP: ${{mrp}}",
+  "offerPrice": "Offer price: ${{offerPrice}}",
+  "pageNotFound": "The page you're looking for can't be found",
+  "backHome": "Back to home",
+  "unitsAvailable": "Only {{availableQuantity}} units are available",
+  "maxUnitsReached": "Maximum units reached!",
+  "search": "Search products",
+  "cart": {
+    "noLongerAvailable": "{{name}} is no longer available and has been removed from cart",
+    "error": "An error occurred:",
+    "cartEmpty": "Your cart is empty!"
+  },
+  "removeItem": {
+    "title": "Remove item?",
+    "message": "You are removing <strong>{{name}}</strong> from cart. Do you want to continue?",
+    "button": "Yes, remove"
+  }
 }

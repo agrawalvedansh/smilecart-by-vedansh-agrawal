@@ -6,6 +6,7 @@ import { PageLoader } from "components/commons";
 import Header from "components/commons/Header";
 import { MRP, OFFER_PRICE } from "components/constants";
 import { cartTotalOf } from "components/utils";
+import { t } from "i18next";
 import { NoData, Toastr } from "neetoui";
 import { isEmpty, keys } from "ramda";
 import useCartItemsStore from "stores/useCartItemsStore";
@@ -36,16 +37,13 @@ const Cart = () => {
 
         setSelectedQuantity(slug, availableQuantity);
         if (availableQuantity === 0) {
-          Toastr.error(
-            `${name} is no longer available and has been removed from cart`,
-            {
-              autoClose: 2000,
-            }
-          );
+          Toastr.error(t("cart.noLongerAvailable", { name }), {
+            autoClose: 2000,
+          });
         }
       });
     } catch (error) {
-      console.log("An error occurred:", error);
+      console.log(t("cart.error"), error);
     } finally {
       setIsLoading(false);
     }
@@ -62,7 +60,7 @@ const Cart = () => {
       <>
         <Header title="My Cart" />
         <div className="flex h-screen items-center justify-center">
-          <NoData title="Your cart is empty!" />
+          <NoData title={t("cart.cartEmpty")} />
         </div>
       </>
     );

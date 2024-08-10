@@ -5,6 +5,7 @@ import { Header, PageNotFound, PageLoader } from "components/commons";
 import AddToCart from "components/commons/AddToCart";
 import useSelectedQuantity from "components/hooks/useSelectedQuantity";
 import Carousel from "components/Product/Carousel";
+import { t } from "i18next";
 import { Button, Typography } from "neetoui";
 import { append, isNotNil } from "ramda";
 import { useParams } from "react-router-dom";
@@ -65,9 +66,9 @@ const Product = () => {
         </div>
         <div className="w-3/5 space-y-4">
           <Typography>{description}</Typography>
-          <Typography>MRP: {mrp}</Typography>
+          <Typography>{t("mrp", { mrp })}</Typography>
           <Typography className="font-semibold">
-            Offer price: ${offerPrice}
+            {t("offerPrice", { offerPrice })}
           </Typography>
           <Typography className="font-semibold text-green-600">
             {discountPercentage}% off

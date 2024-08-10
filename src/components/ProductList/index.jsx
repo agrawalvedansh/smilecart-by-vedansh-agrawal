@@ -4,6 +4,7 @@ import productsApi from "apis/product";
 import { Header, PageLoader } from "components/commons";
 import ProductListItem from "components/ProductList/ProductListItem";
 import useDebounce from "hooks/useDebounce";
+import { t } from "i18next";
 import { Search } from "neetoicons";
 import { Input, NoData } from "neetoui";
 import { isEmpty } from "ramda";
@@ -21,7 +22,7 @@ const ProductList = () => {
       });
       setProducts(products);
     } catch (error) {
-      console.log("An error occurred:", error);
+      console.log(t("error"), error);
     } finally {
       setIsLoading(false);
     }
@@ -42,7 +43,7 @@ const ProductList = () => {
         title="Smile cart"
         actionBlock={
           <Input
-            placeholder="Search products"
+            placeholder={t("search")}
             prefix={<Search />}
             type="search"
             value={searchKey}
