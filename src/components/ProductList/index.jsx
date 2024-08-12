@@ -8,6 +8,7 @@ import { t } from "i18next";
 import { Search } from "neetoicons";
 import { Input, NoData } from "neetoui";
 import { isEmpty } from "ramda";
+import withTitle from "utils/withTitle";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -64,4 +65,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default withTitle(ProductList, t("productListTitle"));

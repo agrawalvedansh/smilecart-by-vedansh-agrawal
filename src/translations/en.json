@@ -15,11 +15,15 @@
   "cart": {
     "noLongerAvailable": "{{name}} is no longer available and has been removed from cart",
     "error": "An error occurred:",
-    "cartEmpty": "Your cart is empty!"
+    "cartEmpty": "Your cart is empty!",
+    "title": "My cart"
   },
   "removeItem": {
     "title": "Remove item?",
     "message": "You are removing <strong>{{name}}</strong> from cart. Do you want to continue?",
     "button": "Yes, remove"
-  }
+  },
+  "title": "Smile Cart",
+  "pageTitle": "{{title}} | Smile Cart",
+  "productListTitle": "Product List"
 }
