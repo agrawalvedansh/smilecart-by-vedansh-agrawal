@@ -23,6 +23,9 @@
     "message": "You are removing <strong>{{name}}</strong> from cart. Do you want to continue?",
     "button": "Yes, remove"
   },
+  "error": {
+    "removedFromCart": "{{name}} is no longer available and has been removed from cart"
+  },
   "title": "Smile Cart",
   "pageTitle": "{{title}} | Smile Cart",
   "productListTitle": "Product List"
