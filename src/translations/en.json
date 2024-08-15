@@ -12,6 +12,7 @@
   "unitsAvailable": "Only {{availableQuantity}} units are available",
   "maxUnitsReached": "Maximum units reached!",
   "search": "Search products",
+  "confirmOrder": "Confirm order",
   "cart": {
     "noLongerAvailable": "{{name}} is no longer available and has been removed from cart",
     "error": "An error occurred:",
@@ -24,7 +25,9 @@
     "button": "Yes, remove"
   },
   "error": {
-    "removedFromCart": "{{name}} is no longer available and has been removed from cart"
+    "removedFromCart": "{{name}} is no longer available and has been removed from cart",
+    "noInternetConnection": "No Internet Connection",
+    "networkError": "Network Error"
   },
   "title": "Smile Cart",
   "pageTitle": "{{title}} | Smile Cart",
@@ -49,5 +52,19 @@
   "state": "State",
   "selectState": "Select the state",
   "zipCode": "Zip code",
-  "enterZipCode": "Enter zip code"
+  "enterZipCode": "Enter zip code",
+  "validations": {
+    "emailRequired": "Email address is required",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "addressRequired": "Address is required",
+    "apartmentRequired": "Apartment is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "zipCodeRequired": "Zip code is required",
+    "emailInvalid": "Email address is invalid"
+  },
+  "order": {
+    "successfullyPlaced": "Order has been successfully placed"
+  }
 }
